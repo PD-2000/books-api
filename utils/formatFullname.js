@@ -1,5 +1,11 @@
 module.exports = (fullName) => {
-  const [ firstName, lastName ] = fullName.split(' ');
-  if(!firstName || !lastName) return false;
-  return firstName[0].toUpperCase + firstName.slice(1).toLowerCase() + lastName[0].toUpperCase + lastName.slice(1).toLowerCase() ;
+  if(typeof fullName !== 'string')
+    return 'Error';
+
+  const fullNameArray = fullName.split(' ');
+  const [firstName, lastName] = fullName.split(' ');
+  if(fullNameArray.length !== 2 || !firstName || !lastName)
+    return 'Error';
+
+  return (firstName[0].toUpperCase() + firstName.slice(1).toLowerCase() + ' ' + lastName[0].toUpperCase() + lastName.slice(1).toLowerCase());
 };
